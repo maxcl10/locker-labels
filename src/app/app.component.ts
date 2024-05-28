@@ -24,7 +24,5 @@ export class AppComponent {
       return items.slice(0, -1).join('/') + '/';
     });;
 
-  constructor() {
 
-  }
 }
