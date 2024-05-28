@@ -22,7 +22,13 @@ export class AppComponent {
   division =  computed(()=>
     {
       const items = this.name().split('/');
-      return items.slice(0, -1).join('/') + '/';
+      if(items.length>1) {
+        return items.slice(0, -1).join('/') + '/';
+      }
+      else
+      {
+        return '';
+      }
     });
 
 
