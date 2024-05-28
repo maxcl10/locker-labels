@@ -1,4 +1,4 @@
-import { Component, computed, input, model, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
@@ -18,11 +18,12 @@ export class AppComponent {
     const items = this.name().split('/');
     return items[items.length - 1];
   });
+
   division =  computed(()=>
     {
       const items = this.name().split('/');
       return items.slice(0, -1).join('/') + '/';
-    });;
+    });
 
 
 }
