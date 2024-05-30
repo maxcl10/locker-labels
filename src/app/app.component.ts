@@ -1,6 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import {Component, computed, signal} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,24 +12,20 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'case-labels';
 
-  name = signal<string>('');
-  fourLetterCode = computed(()=>
-  {
+  name = signal<string>('BSLS/IEG/TEST');
+  fourLetterCode = computed(() => {
     const items = this.name().split('/');
     return items[items.length - 1];
   });
 
-  division =  computed(()=>
-    {
-      const items = this.name().split('/');
-      if(items.length>1) {
-        return items.slice(0, -1).join('/') + '/';
-      }
-      else
-      {
-        return '';
-      }
-    });
+  division = computed(() => {
+    const items = this.name().split('/');
+    if (items.length > 1) {
+      return items.slice(0, -1).join('/') + '/';
+    } else {
+      return '';
+    }
+  });
 
 
 }
