@@ -1,0 +1,10 @@
+#placeholder label {
+  color: #05164D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#placeholder {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+}

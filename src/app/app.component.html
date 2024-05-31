@@ -1,33 +1,36 @@
-<div class="container">
-  <div class="no-print ">
+<div class="container-fluid d-print-none">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{ title }}</a>
+    </div>
+  </nav>
+</div>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Lockers Label Generator</a>
-      </div>
-    </nav>
+<div class="container d-print-none">
 
+  <div class="form-floating mt-4">
+      <textarea [(ngModel)]="labelString" class="form-control" id="inputText" placeholder="Enter location:"
+                style="height: 100px" type="text"></textarea>
+    <label for="inputText">Labels Text (One label per line)</label>
+  </div>
 
-    <div class="form-floating mt-4">
-      <input [(ngModel)]="name" class="form-control" id="inputText" maxlength="15"
-             placeholder="Enter location:" type="text">
-      <label for="inputText">Label Text</label>
+  <div class="row">
+    <div *ngFor="let label of labels()" class="col-4">
+      <app-case-label [name]="label"></app-case-label>
     </div>
   </div>
 
-  <div class="position-relative mt-4" id="main">
-    <div id="placeholder">
-      <label [ngStyle]="{'font-size.px': fontSize()}" for="placeholder">{{ division() }}</label>
-      <label [ngStyle]="{'font-size.px': fontSize()}" class="fw-bold" for="placeholder">{{ fourLetterCode() }}</label>
-    </div>
-    <img alt="logo" src="template_resized.png" style="border: 1px dashed #aaaaaa;"/>
-
-  </div>
-
-  <div class="no-print mt-4">
+  <div class="mt-4">
     <button class="btn btn-secondary" onClick="window.print()">Print Label
     </button>
   </div>
 </div>
 
 
+<div class="container-fluid d-print-block d-none">
+  <div class="row">
+    <div *ngFor="let label of labels()" class="col">
+      <app-case-label [name]="label"></app-case-label>
+    </div>
+  </div>
+</div>
